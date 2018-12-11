@@ -27,3 +27,16 @@ FBAGluAerobic = optimizeCbModel(modelGluAerobic,'max');
 (Change maximum uptake rate as needed. In my case, I was changing maximum glucose uptake rate and maximum oxygen uptake rate) 
 T = table(modelGluAerobic.rxns, modelGluAerobic.rxnNames, FBAGluAerobic.v);
 writetable(T,'Flux_GluAerobic.xlsx','FileType','spreadsheet');
+* Local preparation ("localPrep" folder). Assume the parameter for FBA set is named "g0"
+ * run Parse_vertex_pairs.ipynb or Parse_vertex_pairs.py to obtain dict_all.pkl and dict_subsys.pkl
+ * run Save_flux.ipynb or Save_flux.py to obtain dict_flux_g0.pkl
+ * run Save_input.ipynb to obtain lst_reactions_g0.pkl, lst_metabolites_g0.pkl, and edges_g0.pkl
+* Run modularity calculation on a computer cluster
+ * upload everything to a computer cluster
+ * submit job through submit_job.slurm
+  * g0.py will be run multiple times. g0.py calls the bidiLouvain.py script to calculate modularity.
+
+fba and modularity/bidiLouvain/ contains the codes for calculating modularity for a bipartite directed weighted network.
+
+-------------------
+Updated 12-11-2018
