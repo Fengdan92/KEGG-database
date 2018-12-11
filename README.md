@@ -9,6 +9,7 @@ This is repository consists of two (not-really-related) parts:
   * update local KEGG database (optional) - files are saved to /database
   * convert the database .xlsx files to python dictionaries. Establish bacteria - enzyme relations, and enzyme - reactant pairs relations.
   * save the python dictionaries as pickle files.
+
 * Run multi/multi.py
   * read .pkl files
   * for each bacterium, print its full lists of reactant pairs.
@@ -24,13 +25,16 @@ model=readCbModel('iML1515.mat');
 modelGluAerobic = model;  
 modelGluAerobic = changeObjective (modelGluAerobic, 'BIOMASS_Ec_iML1515_core_75p37M');  
 FBAGluAerobic = optimizeCbModel(modelGluAerobic,'max');  
-(Change maximum uptake rate as needed. In my case, I was changing maximum glucose uptake rate and maximum oxygen uptake rate) 
+(Change maximum uptake rate as needed. In my case, I was changing maximum glucose uptake rate and maximum oxygen uptake rate)
+
 T = table(modelGluAerobic.rxns, modelGluAerobic.rxnNames, FBAGluAerobic.v);
 writetable(T,'Flux_GluAerobic.xlsx','FileType','spreadsheet');
+
 * Local preparation ("localPrep" folder). Assume the parameter for FBA set is named "g0"
   * run Parse_vertex_pairs.ipynb or Parse_vertex_pairs.py to obtain dict_all.pkl and dict_subsys.pkl
   * run Save_flux.ipynb or Save_flux.py to obtain dict_flux_g0.pkl
   * run Save_input.ipynb to obtain lst_reactions_g0.pkl, lst_metabolites_g0.pkl, and edges_g0.pkl
+
 * Run modularity calculation on a computer cluster
   * upload everything to a computer cluster
   * submit job through submit_job.slurm
