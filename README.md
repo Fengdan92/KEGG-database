@@ -3,6 +3,8 @@ This is repository consists of two (not-really-related) parts:
 * Codes to reconstruct genome-scale metabolic networks automatically from KEGG database ("multi" and "database" folder)
 * Codes to conduct Flux Balance Analysis (FBA) on an established E.coli model i*ML*1515, and calculate the Louvain modularity for the resulting bipartite directed weighted network ("fba and modularity" folder).
 
+This is part of my research that started in Summer 2017. Codes have all been tested and are working. However, many codes need to be polished to enhance efficiency and understandability. **Please refer to this github page if you use my codes in your work.**
+
 # Instructions
 ## Reconstruction of genome-scale metabolic networks automatically from KEGG database ("multi" and "database" folder)
 * Run multi/multi_preparation.py
