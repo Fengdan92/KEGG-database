@@ -25,8 +25,7 @@ model=readCbModel('iML1515.mat');
 modelGluAerobic = model;  
 modelGluAerobic = changeObjective (modelGluAerobic, 'BIOMASS_Ec_iML1515_core_75p37M');  
 FBAGluAerobic = optimizeCbModel(modelGluAerobic,'max');  
-(Change maximum uptake rate as needed. In my case, I was changing maximum glucose uptake rate and maximum oxygen uptake rate)
-
+(Change maximum uptake rate as needed. In my case, I was changing maximum glucose uptake rate and maximum oxygen uptake rate)  
 T = table(modelGluAerobic.rxns, modelGluAerobic.rxnNames, FBAGluAerobic.v);
 writetable(T,'Flux_GluAerobic.xlsx','FileType','spreadsheet');
 
