@@ -1,0 +1,6 @@
+#! /bin/bash
+for x in `cat list_names.txt`
+do
+cp g0.py ${x}.py 
+sed -i "s/g0/${x}/g" ${x}.py 
+done
