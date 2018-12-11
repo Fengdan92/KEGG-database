@@ -18,7 +18,7 @@ This is repository consists of two parts:
   * graph the new metabolite network
  
  ## Flux balance analysis and modularity calculation based on E. coli model iML1515 ("fba and modularity" folder)
- * FBA in matlab:
+* FBA in matlab:
 initCobraToolbox  
 model=readCbModel('iML1515.mat');  
 modelGluAerobic = model;  
@@ -28,13 +28,13 @@ FBAGluAerobic = optimizeCbModel(modelGluAerobic,'max');
 T = table(modelGluAerobic.rxns, modelGluAerobic.rxnNames, FBAGluAerobic.v);
 writetable(T,'Flux_GluAerobic.xlsx','FileType','spreadsheet');
 * Local preparation ("localPrep" folder). Assume the parameter for FBA set is named "g0"
- * run Parse_vertex_pairs.ipynb or Parse_vertex_pairs.py to obtain dict_all.pkl and dict_subsys.pkl
- * run Save_flux.ipynb or Save_flux.py to obtain dict_flux_g0.pkl
- * run Save_input.ipynb to obtain lst_reactions_g0.pkl, lst_metabolites_g0.pkl, and edges_g0.pkl
+  * run Parse_vertex_pairs.ipynb or Parse_vertex_pairs.py to obtain dict_all.pkl and dict_subsys.pkl
+  * run Save_flux.ipynb or Save_flux.py to obtain dict_flux_g0.pkl
+  * run Save_input.ipynb to obtain lst_reactions_g0.pkl, lst_metabolites_g0.pkl, and edges_g0.pkl
 * Run modularity calculation on a computer cluster
- * upload everything to a computer cluster
- * submit job through submit_job.slurm
-  * g0.py will be run multiple times. g0.py calls the bidiLouvain.py script to calculate modularity.
+  * upload everything to a computer cluster
+  * submit job through submit_job.slurm
+   * g0.py will be run multiple times. g0.py calls the bidiLouvain.py script to calculate modularity.
 
 fba and modularity/bidiLouvain/ contains the codes for calculating modularity for a bipartite directed weighted network.
 
