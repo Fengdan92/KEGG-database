@@ -43,5 +43,9 @@ writetable(T,'Flux_GluAerobic.xlsx','FileType','spreadsheet');
 
 fba and modularity/bidiLouvain/ contains the codes for calculating modularity for a bipartite directed weighted network.
 
+
+For more detailed instructions, see https://github.com/Fengdan92/KEGG-database/blob/master/Explanation_FBA_bidimodularity.pdf
+This is a pdf that I put up for one of my group meeting presentations in 2018. 
+
 -------------------
-Updated 12-11-2018
+Updated 1-8-2019
